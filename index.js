@@ -49,8 +49,16 @@ const body = d3.select('body')
 //                   console.log(data)
 //                 })
 
-d3.json("./data/users.json", function(data) {
-  console.log(data);
-});
+d3.json('./data/users.json', function(error, data){
 
-//why not loading in console
+  d3.select('body')
+    .selectAll('p')
+    .data(data)
+    .enter()
+    .append('p')
+    .text(function(d) {
+      return d.name + ', ' + d.location
+    })
+})
+
+//why is it not loading in console?
