@@ -39,3 +39,7 @@ const body = d3.select('body')
                 }).text(function(d){
                   return d + ' '
                 })
+
+d3.csv('/employee.csv', function(d){
+  console.log(d)
+})
