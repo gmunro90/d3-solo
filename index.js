@@ -1,32 +1,9 @@
-// d3.select('body').append('p').text('this is the new paragraph')
-// d3.select('body').append('div').insert('h3').text('testing')
-// d3.select("body").append("p").text("Hello World!"); 
-// d3.select("body")
-//   .append("p")
-//   .text("Third paragraph");
-
-  // let data = [100, 200, 300];
-
-  // let paragraph = d3.select("body")
-  // .selectAll("p")
-  // .data(data)
-  // .text(function (d, i) {
-  //     console.log("data: " + d);
-  //     console.log("i: " + i);
-  //     console.log("this: " + this);
-
-  //     return d;
-
-      //this returns the data, 
-      //index and html element for each iteration of data
-  // });
-
   d3.selectAll('p').style('color', function (d,i) {
     let text = this.innerText
     if (text.indexOf('Error') >= 0) {
       return 'red'
     } else if (text.indexOf('Warning') >= 0) {
-      return 'yellow'
+      return 'orange'
     }
   })
 
@@ -35,26 +12,30 @@ d3.select('p')
   d3.select(this)
     .style("background-color", "orange");
 
-  // Get current event info
-  console.log(d3.event);
-  
-
 })
 .on("mouseout", function(){
   d3.select(this)
     .style("background-color", "steelblue")
 });
 
+
 d3.select('#container')
   .transition()
-  .duration(3000)
-  .style('background-color', 'red')
+  .duration(2000)
+  .style('background-color', '#545AC4')
 
-  const myData = ["Hello World!", "Hello D3","Hello JavaScript"];
-     
-  const p = d3.select("body")
-          .selectAll("p")
-          .data(myData)
-          .text(function (d, i) {
-              return d;
-          });
+const data = [4, 1, 6, 2, 8, 9]
+
+const body = d3.select('body')
+                .selectAll('span')
+                .data(data)
+                .enter().append('span')
+                .style('color', function(d){
+                  if (d % 2 === 0) {
+                    return 'green'
+                  } else {
+                    return 'red'
+                  }
+                }).text(function(d){
+                  return d + ' '
+                })
