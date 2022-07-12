@@ -40,6 +40,17 @@ const body = d3.select('body')
                   return d + ' '
                 })
 
-d3.csv('/employee.csv', function(d){
-  console.log(d)
-})
+// d3.request('./employee.csv')
+//                 .mimeType("text/csv")
+//                 .response(function (xhr) {
+//                   return d3.csvParse(xhr.responseText)
+//                 })
+//                 .get(function(data) {
+//                   console.log(data)
+//                 })
+
+d3.json("./data/users.json", function(data) {
+  console.log(data);
+});
+
+//why not loading in console
