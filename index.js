@@ -49,3 +49,12 @@ d3.select('#container')
   .transition()
   .duration(3000)
   .style('background-color', 'red')
+
+  const myData = ["Hello World!", "Hello D3","Hello JavaScript"];
+     
+  const p = d3.select("body")
+          .selectAll("p")
+          .data(myData)
+          .text(function (d, i) {
+              return d;
+          });
