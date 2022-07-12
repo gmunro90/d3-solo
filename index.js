@@ -29,3 +29,9 @@
       return 'yellow'
     }
   })
+
+d3.select('p')
+  .on('click', function() {
+    d3.select(this)
+    .style('background-color', 'orange')
+  })
