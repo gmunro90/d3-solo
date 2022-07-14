@@ -3,3 +3,16 @@
   width: 300px;
   background-color: black;
 }
+
+svg {
+  margin-top: 30px;
+}
+svg rect {
+  fill: orange;
+}
+
+svg text {
+   fill:white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
